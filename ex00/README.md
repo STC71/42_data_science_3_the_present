@@ -55,4 +55,4 @@ MPLBACKEND=Agg python3 Histogram.py
 
 ---
 
-*Module 3 – EX00 – sternero – 42 Málaga – 2026*
+*Module 3 – EX00 – sternero – 42 Málaga – Octubre 2026*

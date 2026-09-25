@@ -1,5 +1,9 @@
 # 🐍 Guía Python – EX00 Histogram
 
+<p align="center">
+  <img src="./imgs/banner_python.jpg" alt="Piscine Data Science – Module 3 – ex00 – Guía Python" width="100%">
+</p>
+
 [← README EX00](./README.md)
 
 ## Datos
