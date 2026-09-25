@@ -1,7 +1,7 @@
 # 📊 Ejercicio 00 – Histogram
 
 <p align="center">
-  <img src="../imgs/banner_3.jpg" alt="Piscine Data Science – Module 3 – Histogram" width="100%">
+  <img src="../imgs/banner_30.jpg" alt="Piscine Data Science – Module 3 – Histogram" width="100%">
 </p>
 
 [← README Module 3](../README.md)

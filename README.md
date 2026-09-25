@@ -1,12 +1,11 @@
 # ⚔️ Piscine Data Science – Module 3 – The present
 
 <p align="center">
-  <strong>Exploración · correlación · escalas · train/validation</strong><br>
-  <em>Training Piscine datascience – 3 · Version 1.00</em>
+  <img src="./imgs/banner_00.jpg" alt="Piscine Data Science – Module 3 – Exploración · correlación · escalas · train/validation" width="100%">
 </p>
 
 <p align="center">
-  <em>sternero – 42 Málaga</em>
+  <strong>Exploración · correlación · escalas · train/validation</strong><br>
 </p>
 
 ---
@@ -175,4 +174,4 @@ No sustituye `Histogram.*` / … / `split.*`.
 
 ---
 
-*sternero – 42 Málaga – Module 3 – The present – 2026*
+*sternero – 42 Málaga – Module 3 – The present – Octubre 2026*
