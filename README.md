@@ -174,4 +174,21 @@ No sustituye `Histogram.*` / … / `split.*`.
 
 ---
 
+<a id="csv-auto"></a>
+## 🔍 Localización automática de CSV
+
+El asistente global (`./start.sh`) **busca** `Train_knight.csv` y `Test_knight.csv` en:
+
+1. `data/` y cada `ex0N/` del módulo  
+2. Directorio de trabajo actual  
+3. Rutas típicas bajo `sgoinfre` / monorepo  
+4. `find` limitado (maxdepth) si aún no aparecen  
+
+**Opción 2 del menú:** copia los ficheros encontrados a `data/` y a cada ejercicio.  
+Los scripts pueden usar también las variables `KNIGHT_TRAIN_CSV` y `KNIGHT_TEST_CSV`.
+
+[↑ Volver al índice](#indice)
+
+---
+
 *sternero – 42 Málaga – Module 3 – The present – Octubre 2026*

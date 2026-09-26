@@ -26,12 +26,28 @@
 | [`start.sh`](./start.sh) | Menú opcional |
 | `Train_knight.csv` / `Test_knight.csv` | Datos (o en `../data/`) |
 
+
 PNG:
 
 | Fichero | Contenido |
 |---------|-----------|
 | [`histogram_test.png`](./histogram_test.png) | Features (Test) |
 | [`histogram_train.png`](./histogram_train.png) | Features × Jedi/Sith (Train) |
+
+<a id="csv-auto"></a>
+## 🔍 Localización automática de CSV
+
+El asistente global (`./start.sh`) **busca** `Train_knight.csv` y `Test_knight.csv` en:
+
+1. `data/` y cada `ex0N/` del módulo  
+2. Directorio de trabajo actual  
+3. Rutas típicas bajo `sgoinfre` / monorepo  
+4. `find` limitado (maxdepth) si aún no aparecen  
+
+**Opción 2 del menú:** copia los ficheros encontrados a `data/` y a cada ejercicio.  
+Los scripts pueden usar también las variables `KNIGHT_TRAIN_CSV` y `KNIGHT_TEST_CSV`.
+
+[↑ Volver al índice](#indice)
 
 ## ▶️ Ejecutar
 

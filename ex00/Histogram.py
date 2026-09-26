@@ -85,18 +85,36 @@ TARGET_COL = "knight"
 
 
 def find_csv(name: str) -> Path:
-    """Busca name junto al script, en ../data/ o en el cwd."""
-    candidates = [
-        SCRIPT_DIR / name,
-        MODULE3_DIR / "data" / name,
-        Path.cwd() / name,
-        Path.cwd() / "data" / name,
-    ]
+    """
+    Busca name en este orden:
+      1) Variables de entorno del menú global (KNIGHT_TRAIN_CSV / KNIGHT_TEST_CSV)
+      2) Junto al script, ../data/, cwd
+    """
+    env_map = {
+        "Train_knight.csv": os.environ.get("KNIGHT_TRAIN_CSV", ""),
+        "Test_knight.csv": os.environ.get("KNIGHT_TEST_CSV", ""),
+    }
+    env_path = env_map.get(name, "")
+    candidates = []
+    if env_path:
+        candidates.append(Path(env_path))
+    candidates.extend(
+        [
+            SCRIPT_DIR / name,
+            MODULE3_DIR / "data" / name,
+            Path.cwd() / name,
+            Path.cwd() / "data" / name,
+        ]
+    )
     for path in candidates:
-        if path.is_file():
-            return path
+        try:
+            if path.is_file():
+                return path.resolve()
+        except OSError:
+            continue
     raise FileNotFoundError(
-        f"No se encuentra {name}. Colócalo en ex00/ o data_science_3/data/"
+        f"No se encuentra {name}. Colócalo en ex00/ o data_science_3/data/ "
+        f"(o usa ./start.sh → opción 2 para buscarlo en el sistema)."
     )
 
 
