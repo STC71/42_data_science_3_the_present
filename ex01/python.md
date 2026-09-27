@@ -94,6 +94,8 @@ Aquí una de las dos “columnas” es el bando codificado como número.
 
 Pearson habla de **números**. `Jedi` y `Sith` son texto.
 
+Pearson es el nombre del tipo de correlación que estamos usando (la más habitual en este tipo de ejercicios).
+
 Solución sencilla: asignar **0** a un bando y **1** al otro.  
 El script elige la asignación de forma que el resultado se alinee con el sentido del ejemplo del subject (skills “fuertes” con coeficiente positivo alto, cuando es posible).
 
@@ -111,6 +113,10 @@ No es magia: es “poner etiquetas numéricas para poder medir”.
 3. Calcula la correlación de **cada** skill con ese target.  
 4. Ordena de mayor a menor.  
 5. Imprime una tabla `nombre  coeficiente`.
+
+<p align="center">
+  <img src="./imgs/correlation_diagrama_flujo.jpg" alt="Piscine Data Science – Module 3 – ex01 – Diagrama de Flujo" width="100%">
+</p>
 
 [↑ Índice](#indice)
 

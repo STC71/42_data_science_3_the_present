@@ -234,6 +234,10 @@ Imagina un robot con instrucciones en español:
 
 No hay base de datos ni Docker en este ejercicio: **solo CSV + Python + gráficos**.
 
+<p align="center">
+  <img src="./imgs/histogram_diagrama_flujo.jpg" alt="Piscine Data Science – Module 3 – ex01 – Diagrama de Flujo  width="100%">
+</p>
+
 [↑ Índice](#indice)
 
 ---

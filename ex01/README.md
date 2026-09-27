@@ -1,7 +1,7 @@
 # 🔗 Ejercicio 01 – Correlation
 
 <p align="center">
-  <img src="../imgs/banner_3.jpg" alt="Piscine Data Science – Module 3 – Correlation" width="100%">
+  <img src="../imgs/banner_31.jpg" alt="Piscine Data Science – Module 3 – Correlation" width="100%">
 </p>
 
 [← README Module 3](../README.md)
@@ -17,7 +17,7 @@
 | Datos | `Train_knight.csv` (necesita la columna **`knight`**) |
 | Salida | Factor de correlación de cada **feature** con el **target** `knight`, de más a menos relacionado |
 
-El PDF muestra un ejemplo de tabla (números orientativos). Los tuyos salen de **tu** CSV; el orden de las skills más fuertes debería parecerse (Empowered, Stims, Prescience…).
+El PDF muestra un ejemplo de tabla (números orientativos). Los nuestros salen de **nuestro** CSV; el orden de las skills más fuertes debería parecerse (Empowered, Stims, Prescience…).
 
 ## 📁 Archivos
 
