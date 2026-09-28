@@ -100,6 +100,10 @@ Awareness (eje X) × Strength (eje Y)
 
 Solo cambia que los valores ya son **z-score**. Los clusters deberían seguir visibles (la estandarización no mezcla bandos; solo cambia la escala de los ejes).
 
+<p align="center">
+  <img src="./imgs/standardization_scatter.png" alt="Piscine Data Science – Module 3 – ex03 – scatter" width="100%">
+</p>
+
 ---
 
 ## 8. Qué hace el programa
@@ -109,6 +113,10 @@ Solo cambia que los valores ya son **z-score**. Los clusters deberían seguir vi
 3. Calcula z-score por skill.  
 4. Imprime primeras filas **estandarizadas**.  
 5. Dibuja el scatter de Train estandarizado → `standardization_scatter.png`.
+
+<p align="center">
+  <img src="./imgs/standardization_diagrama_flujo.jpg" alt="Piscine Data Science – Module 3 – ex03 – Diagrama de Flujo" width="100%">
+</p>
 
 ---
 
@@ -164,4 +172,4 @@ python3 standardization.py
 
 ---
 
-*Module 3 – EX03 – Guía Python · sternero – 42 Málaga – 2026*
+*Module 3 – EX03 – Guía Python · sternero – 42 Málaga – Octubre 2026*

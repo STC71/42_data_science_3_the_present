@@ -75,4 +75,4 @@ Salida:
 
 ---
 
-*Module 3 – EX03 – sternero – 42 Málaga – 2026*
+*Module 3 – EX03 – sternero – 42 Málaga – Octubre 2026*
