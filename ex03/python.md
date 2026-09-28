@@ -25,6 +25,8 @@
 
 ---
 
+<a id="lee"></a>
+
 ## 1. Lee esto primero
 
 En EX00–EX02 las skills tenían **unidades distintas** (Strength ~100, Agility ~0.1).  
@@ -33,6 +35,8 @@ Eso no impide histogramas ni correlaciones, pero complica comparar “quién se 
 **Estandarizar** = reescribir cada skill para que tenga media ≈ 0 y dispersión ≈ 1.
 
 ---
+
+<a id="subject"></a>
 
 ## 2. Qué pide el subject
 
@@ -44,12 +48,16 @@ Eso no impide histogramas ni correlaciones, pero complica comparar “quién se 
 
 ---
 
+<a id="por-que"></a>
+
 ## 3. Por qué estandarizar
 
 Analogía: comparar altura en metros y peso en gramos en la misma gráfica es engañoso.  
 Si restas la media y divides por la desviación, ambos ejes hablan el mismo idioma: **“cuántas desviaciones por encima/debajo de la media”**.
 
 ---
+
+<a id="formula"></a>
 
 ## 4. Fórmula z-score
 
@@ -73,12 +81,16 @@ Si \(\sigma = 0\) (columna constante), se deja \(z = 0\).
 
 ---
 
+<a id="knight"></a>
+
 ## 5. Qué no se estandariza
 
 La columna **`knight`** es texto (Jedi/Sith). No entra en la fórmula.  
 Se copia igual en la tabla impresa y se usa solo para **colorear** el scatter de Train.
 
 ---
+
+<a id="train-test"></a>
 
 ## 6. Train y Test
 
@@ -87,6 +99,8 @@ Cada fichero se estandariza con **su propia** media y std (como “print your da
 No es el único enfoque posible en ML (a veces se aprende \(\mu,\sigma\) solo en Train y se aplican a Test); el subject no exige ese matiz: pide ver los datos estandarizados de ambos CSV.
 
 ---
+
+<a id="grafico"></a>
 
 ## 7. El gráfico de EX02 reutilizado
 
@@ -106,6 +120,8 @@ Solo cambia que los valores ya son **z-score**. Los clusters deberían seguir vi
 
 ---
 
+<a id="programa"></a>
+
 ## 8. Qué hace el programa
 
 1. Lee Train y Test desde `../data/`.  
@@ -119,6 +135,8 @@ Solo cambia que los valores ya son **z-score**. Los clusters deberían seguir vi
 </p>
 
 ---
+
+<a id="codigo"></a>
 
 ## 9. Código (mapa)
 
@@ -139,6 +157,8 @@ z = (columna - columna.mean()) / columna.std()
 
 ---
 
+<a id="ejecutar"></a>
+
 ## 10. Ejecutar
 
 ```bash
@@ -149,6 +169,8 @@ python3 standardization.py
 
 ---
 
+<a id="fallos"></a>
+
 ## 11. Fallos
 
 | Síntoma | Qué hacer |
@@ -158,6 +180,8 @@ python3 standardization.py
 | Sin PNG | `MPLBACKEND=Agg` y leer traceback |
 
 ---
+
+<a id="defensa"></a>
 
 ## 12. Checklist y defensa
 

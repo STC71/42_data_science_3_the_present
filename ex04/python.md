@@ -8,6 +8,8 @@
 
 ---
 
+<a id="indice"></a>
+
 ## 📑 Índice
 
 1. [Lee esto primero](#lee)
@@ -25,6 +27,8 @@
 
 ---
 
+<a id="lee"></a>
+
 ## 1. Lee esto primero
 
 EX03 puso las skills en escala “media 0, std 1” (z-score).  
@@ -33,6 +37,8 @@ EX04 las pone en **[0, 1]** (min-max). Misma idea de “hablar el mismo idioma�
 [↑ Índice](#indice)
 
 ---
+
+<a id="subject"></a>
 
 ## 2. Qué pide el subject
 
@@ -45,6 +51,8 @@ EX04 las pone en **[0, 1]** (min-max). Misma idea de “hablar el mismo idioma�
 El ejemplo del PDF muestra números tipo `0.52 0.02 0.54` → escala acotada, típica de min-max.
 
 ---
+
+<a id="diff"></a>
 
 ## 3. Normalizar ≠ estandarizar
 
@@ -59,6 +67,8 @@ normalizar es “en qué tanto por ciento del recorrido min→max estás”.
 
 ---
 
+<a id="formula"></a>
+
 ## 4. Fórmula min-max
 
 \[
@@ -71,11 +81,15 @@ x' = \frac{x - \min(x)}{\max(x) - \min(x)}
 
 ---
 
+<a id="knight"></a>
+
 ## 5. Qué no se normaliza
 
 **`knight`** es texto (Jedi/Sith). Solo se usa para colorear en Train.
 
 ---
+
+<a id="otros"></a>
 
 ## 6. “The other graphs” de EX02
 
@@ -88,11 +102,15 @@ Así se cubre el subject sin repetir solo el mismo panel de EX03.
 
 ---
 
+<a id="train-test"></a>
+
 ## 7. Train y Test
 
 Cada fichero se normaliza con **su** min y max por columna (print your data por dataset).
 
 ---
+
+<a id="programa"></a>
 
 ## 8. Qué hace el programa
 
@@ -103,6 +121,8 @@ Cada fichero se normaliza con **su** min y max por columna (print your data por 
 5. Dibuja los scatters “otros” de EX02 → `normalization_scatter.png`.
 
 ---
+
+<a id="codigo"></a>
 
 ## 9. Mapa del código
 
@@ -120,6 +140,8 @@ x_norm = (x - x.min()) / (x.max() - x.min())
 
 ---
 
+<a id="ejecutar"></a>
+
 ## 10. Ejecutar
 
 ```bash
@@ -130,6 +152,8 @@ python3 Normalization.py
 
 ---
 
+<a id="fallos"></a>
+
 ## 11. Fallos
 
 | Síntoma | Qué hacer |
@@ -139,6 +163,8 @@ python3 Normalization.py
 | Sin PNG | `MPLBACKEND=Agg` |
 
 ---
+
+<a id="defensa"></a>
 
 ## 12. Checklist y defensa
 
@@ -153,4 +179,4 @@ python3 Normalization.py
 
 ---
 
-*Module 3 – EX04 – Guía Python · sternero – 42 Málaga – 2026*
+*Module 3 – EX04 – Guía Python · sternero – 42 Málaga – Octubre 2026*
