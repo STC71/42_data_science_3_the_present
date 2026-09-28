@@ -120,6 +120,10 @@ Cada fichero se normaliza con **su** min y max por columna (print your data por 
 4. Imprime filas normalizadas.  
 5. Dibuja los scatters “otros” de EX02 → `normalization_scatter.png`.
 
+<p align="center">
+  <img src="./imgs/normalization_diagrama_flujo.jpg" alt="Piscine Data Science – Module 3 – ex04 – Diagrama de Flujo" width="100%">
+</p>
+
 ---
 
 <a id="codigo"></a>
