@@ -44,6 +44,10 @@ python3 Normalization.py
 
 Salida: tablas original + [0,1] y `normalization_scatter.png`.
 
+<p align="center">
+  <img src="./imgs/normalization_scatter.png" alt="Piscine Data Science – Module 3 – Normalization scatter" width="100%">
+</p>
+
 ---
 
 ## 🎤 Defensa
