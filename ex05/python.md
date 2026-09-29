@@ -215,6 +215,10 @@ python3 split.py Train_knight.csv --no-stratify
 4. Escribe `Training_knight.csv` y `Validation_knight.csv` (sin la columna índice de pandas).  
 5. Imprime resumen: filas, %, conteo por bando y la justificación del 80/20.
 
+<p align="center">
+  <img src="./imgs/split_diagrama_flujo.jpg" alt="Piscine Data Science – Module 3 – ex05 – Diagrama de Flujo" width="100%">
+</p>
+
 [↑ Índice](#indice)
 
 ---
@@ -347,4 +351,4 @@ Misma cabecera que el Train; la suma de filas debe ser la del original.
 
 ---
 
-*Module 3 – EX05 – Guía Python · sternero – 42 Málaga – 2026*
+*Module 3 – EX05 – Guía Python · sternero – 42 Málaga – Octubre 2026*
