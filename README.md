@@ -20,8 +20,10 @@
 5. [Qué entrega cada ejercicio](#entregas)
 6. [Asistente global (`./start.sh`)](#asistente-global)
 7. [Prerrequisitos técnicos](#prereq)
-8. [Checklist subject](#checklist)
-9. [Navegación](#navegacion)
+8. [Evaluación guiada (`evaluation.sh`)](#evaluacion)
+9. [Matemáticas del módulo (`mates.md`)](#mates)
+10. [Checklist subject](#checklist)
+11. [Navegación](#navegacion)
 
 ---
 
@@ -67,6 +69,8 @@ Conviene tener copia de los CSV en `data/` y, si ejecutas un ejercicio aislado, 
 ```text
 data_science_3_the_present/
 ├── README.md
+├── mates.md              ← matemáticas del módulo (apoyo didáctico)
+├── evaluation.sh         ← guía interactiva de defensa (NO es nota)
 ├── start.sh              ← asistente GLOBAL
 ├── data/
 │   ├── Train_knight.csv
@@ -149,6 +153,59 @@ No sustituye `Histogram.*` / … / `split.*`.
 
 ---
 
+
+<a id="evaluacion"></a>
+## 🧪 Evaluación guiada (`evaluation.sh`)
+
+Guía interactiva alineada con **`en.subject.pdf`** y **`evaluation_en_3.pdf`**
+(`/PROJECTS/DATA-SCIENCE-3`). **No** sustituye la defensa oficial ni forma parte de la nota.
+
+```bash
+cd data_science_3_the_present
+chmod +x evaluation.sh
+./evaluation.sh
+```
+
+Recorre, con confirmación y opción auto/manual/saltar:
+
+| Bloque hoja | Qué comprueba la guía |
+|-------------|------------------------|
+| EX00 Histogram | Código, ejecución, histogramas Train/Test |
+| EX01 Correlation | Lista de factores, `knight = 1`, explicación oral de r |
+| EX02 points | Gráficos de dispersión (subject: 4 paneles) |
+| EX03 Standardization | Print + scatter con escala z-score |
+| EX04 Normalization | Print + scatter con escala min-max |
+| EX03–04 | Diferencia standardization vs normalization |
+| EX05 Split | % Training/Validation, ficheros generados |
+
+Los CSV se buscan en `data/` y en `ex0N/`. Matplotlib usa caché en goinfre cuando hace falta (cuota en 42).
+
+[↑ Volver al índice](#indice)
+
+---
+
+<a id="mates"></a>
+## 📐 Matemáticas del módulo (`mates.md`)
+
+Guía didáctica de las **cuentas** del Module 3 (histogramas, Pearson, z-score, min-max, split),
+con fórmulas, ejemplos y analogías, sin asumir estadística previa.
+
+| Tema | Ejercicios |
+|------|------------|
+| Distribuciones / bins | EX00 |
+| Correlación de Pearson | EX01 |
+| Nubes de puntos | EX02 |
+| Estandarización z = (x−μ)/σ | EX03 |
+| Normalización min-max | EX04 |
+| Diferencia EX03 vs EX04 | Hoja de evaluación |
+| Split 80/20 (u otro ratio justificado) | EX05 |
+
+📖 **[mates.md](./mates.md)** — material de apoyo. **No** sustituye al subject ni a `Histogram.*` … `split.*`.
+
+[↑ Volver al índice](#indice)
+
+---
+
 <a id="checklist"></a>
 ## ✅ Checklist subject
 
@@ -169,6 +226,8 @@ No sustituye `Histogram.*` / … / `split.*`.
 <a id="navegacion"></a>
 ## 🔗 Navegación
 
+- [🧪 evaluation.sh – guía de defensa](./evaluation.sh)
+- [📐 mates.md – matemáticas del módulo](./mates.md)
 - [← Module 2 Data Viz](../data_science_2_data_viz/README.md)
 - [Monorepo](../README.md)
 
