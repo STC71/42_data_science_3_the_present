@@ -1,7 +1,7 @@
 # 📐 Matemáticas del Module 3 – The present
 
 <p align="center">
-  <img src="./imgs/banner_00.jpg" alt="Piscine Data Science – Module 3 – Matemáticas" width="100%">
+  <img src="./imgs/banner_mates.jpg" alt="Piscine Data Science – Module 3 – Matemáticas" width="100%">
 </p>
 
 Documento **didáctico**: no sustituye al subject ni a los scripts (`Histogram.*`, `Correlation.*`, …).  
@@ -25,8 +25,9 @@ Sirve para entender **con calma** las cuentas detrás de cada ejercicio, **sin d
 6. [EX04 – Normalización (min-max)](#ex04)
 7. [EX03 vs EX04 – Diferencia (hoja de evaluación)](#diff)
 8. [EX05 – Split Training / Validation](#ex05)
-9. [Mini glosario](#glosario)
-10. [Cómo usarlo en la defensa](#defensa)
+9. [Cómo leer cada gráfico (títulos y pies en español)](#graficos)
+10. [Mini glosario](#glosario)
+11. [Cómo usarlo en la defensa](#defensa)
 
 ---
 
@@ -280,7 +281,131 @@ Más training suele ayudar a aprender; la validation debe ser suficiente para se
 
 ---
 
-## 9. Mini glosario {#glosario}
+
+---
+
+## 9. Cómo leer cada gráfico (títulos y pies en español) {#graficos}
+
+Esta sección fija **qué debería verse** en cada PNG y qué texto (título / pie) ayuda en la defensa.  
+Los **nombres de skills** del CSV (`Strength`, `Awareness`…) se dejan como en los datos; el resto del texto del gráfico puede ir en español claro.
+
+> Idea: quien abre el PNG sin haber leído el código debe entender en 10 segundos **qué pregunta responde el dibujo**.
+
+### 9.1 EX00 – Histograma Test (`histogram_test.png`)
+
+| Parte del gráfico | Texto / lectura amigable |
+|-------------------|---------------------------|
+| **Título** | Test – cómo se reparte cada habilidad (sin saber el bando) |
+| **Qué es cada casilla** | Un histograma de **una** skill del CSV |
+| **Eje X** | Valor de esa skill (de menor a mayor) |
+| **Eje Y** | **Cuántos** caballeros tienen un valor en ese tramo (no es tiempo ni dinero) |
+| **Colores** | Un solo color: el Test **no** trae la columna `knight` |
+| **Pie sugerido** | «No hay Jedi/Sith aquí: solo miramos la forma de cada distribución.» |
+
+**Analogía:** contar cuántas personas miden entre 1,60–1,70 m, 1,70–1,80 m, etc. El “edificio” de cada tramo es la barra del histograma.
+
+### 9.2 EX00 – Histograma Train (`histogram_train.png`)
+
+| Parte del gráfico | Texto / lectura amigable |
+|-------------------|---------------------------|
+| **Título** | Train – misma idea, pero coloreado por bando (Jedi / Sith) |
+| **Qué se ve** | Los mismos tipos de histograma, con **dos colores** superpuestos |
+| **Leyenda** | Un color = Jedi · otro = Sith |
+| **Cómo interpretarlo** | Si los colores se **separan** en una skill → esa habilidad ayuda a distinguir bandos. Si se **solapan** → esa skill sola no separa bien. |
+| **Pie sugerido** | «Eje X = valor de la skill · Eje Y = número de caballeros. Colores = bando.» |
+
+### 9.3 EX01 – Lista de correlación (consola / informe)
+
+No es un PNG obligatorio del subject, pero la **salida** debe leerse así:
+
+| Qué aparece | Cómo entenderlo |
+|-------------|-----------------|
+| `knight → 1.000` | Control: una variable correlacionada **consigo misma** siempre da 1 |
+| Valores cercanos a **±1** | Relación lineal **fuerte** con el bando |
+| Valores cercanos a **0** | Poca relación **lineal** con el bando |
+| Orden de la lista | De más relacionada a menos (típico) |
+
+**Frase de defensa:** «Pearson mide si dos listas suben y bajan juntas; no implica causa-efecto.»
+
+### 9.4 EX02 – Cuatro paneles de puntos (`points`)
+
+**Idea global:** cada **punto** = un caballero; los **ejes** = dos skills.
+
+#### Train – par que separa
+
+| Parte | Texto amigable |
+|-------|----------------|
+| **Título** | Train – dos skills que **SÍ** separan los bandos |
+| **Qué se ve** | Nubes de color (Jedi / Sith) **aparte** |
+| **Pie** | «Con solo estas dos medidas ya se intuye el bando.» |
+
+#### Train – par que mezcla
+
+| Parte | Texto amigable |
+|-------|----------------|
+| **Título** | Train – dos skills que **NO** separan bien (se mezclan) |
+| **Qué se ve** | Colores **entremezclados** |
+| **Pie** | «Estas dos skills apenas cuentan el bando por sí solas.» |
+
+#### Test – mismos ejes (dos paneles)
+
+| Parte | Texto amigable |
+|-------|----------------|
+| **Título** | Test – mismos ejes que arriba (aquí no sabemos el bando) |
+| **Qué se ve** | Los mismos pares de skills; **un solo color** |
+| **Pie** | «Sin etiqueta `knight` no podemos pintar Jedi/Sith; solo la posición en el plano.» |
+
+**Analogía:** en un mapa altura × peso a veces se ven dos grupos; en talla de zapato × color favorito puede no haber grupos claros.
+
+### 9.5 EX03 – Scatter tras estandarizar
+
+| Parte | Texto amigable |
+|-------|----------------|
+| **Título** | EX03 – mismo gráfico de separación, pero en escala **estandarizada** |
+| **Ejes** | Skill (estandarizada: media ≈ 0, dispersión ≈ 1) |
+| **Qué cambia** | Los **números** de los ejes; la **forma relativa** de la nube se mantiene |
+| **Pie** | «Cada valor: z = (x − media) / desviación. Todas las skills hablan la misma regla.» |
+
+### 9.6 EX04 – Scatter tras normalizar
+
+| Parte | Texto amigable |
+|-------|----------------|
+| **Título** | EX04 – puntos con skills reescaladas de **0 a 1** |
+| **Ejes** | Skill (normalizada entre 0 y 1) |
+| **Qué cambia** | 0 = mínimo de esa skill en el fichero · 1 = máximo |
+| **Pie** | «Fórmula: (x − mínimo) / (máximo − mínimo). No es lo mismo que el z-score de EX03.» |
+
+### 9.7 EX05 – No hay gráfico, pero sí “qué mirar”
+
+| Salida | Lectura |
+|--------|---------|
+| `Training_knight.csv` | Parte del Train para **ajustar** (p. ej. ~80 %) |
+| `Validation_knight.csv` | Parte **reservada** para comprobar sin hacer trampa (p. ej. ~20 %) |
+
+**Por qué:** si validas solo con los mismos datos del ajuste, puedes creer que aciertas más de la cuenta (como estudiar solo con el examen resuelto).
+
+### 9.8 Ejemplo de código (título + pie en matplotlib)
+
+```python
+fig.suptitle(
+    "Train – distribución de cada habilidad según el bando (Jedi / Sith)",
+    fontsize=12,
+)
+fig.text(
+    0.5, 0.02,
+    "Cada panel = una skill. Eje X: valor · Eje Y: cuántos caballeros. "
+    "Colores: bando. Si se solapan, esa skill no separa bien.",
+    ha="center", fontsize=8, style="italic",
+)
+# fig.savefig(..., bbox_inches="tight", pad_inches=0.35)
+```
+
+> Esto **no** lo exige el subject; es una mejora de claridad para defensa y para quien lea el PNG sin el código.
+
+[↑ Volver al índice](#indice)
+
+
+## 10. Mini glosario {#glosario}
 
 | Término | En una línea |
 |---------|----------------|
@@ -297,7 +422,7 @@ Más training suele ayudar a aprender; la validation debe ser suficiente para se
 
 ---
 
-## 10. Cómo usarlo en la defensa {#defensa}
+## 11. Cómo usarlo en la defensa {#defensa}
 
 | Ejercicio | Frase útil |
 |-----------|------------|
