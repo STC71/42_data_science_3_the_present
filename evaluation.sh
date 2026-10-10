@@ -41,6 +41,7 @@ FAIL_COUNT=0
 WARN_COUNT=0
 LAST_KIND="info"
 LAST_TEXT="Evaluación iniciada"
+RUN_CHOICE="skip"
 
 # ============================================================================
 # SALIDA
@@ -299,9 +300,9 @@ offer_run() {
   read -r -p "  → " choice || true
   choice="${choice:-s}"
   case "$choice" in
-    a|A) echo "auto" ;;
-    m|M) echo "manual" ;;
-    *)   echo "skip" ;;
+    a|A) RUN_CHOICE="auto" ;;
+    m|M) RUN_CHOICE="manual" ;;
+    *)   RUN_CHOICE="skip" ;;
   esac
 }
 
@@ -330,10 +331,9 @@ run_python_exercise() {
     fi
   fi
 
-  local mode
-  mode="$(offer_run "¿Cómo ejecutamos $key ($base)?")"
+  offer_run "¿Cómo ejecutamos $key ($base)?"
 
-  case "$mode" in
+  case "$RUN_CHOICE" in
     auto)
       clear 2>/dev/null || true
       header
@@ -343,8 +343,28 @@ run_python_exercise() {
       show_cmd "cd $SCRIPT_DIR/$dir && MPLBACKEND=Agg python3 $base $extra_args"
       if (cd "$SCRIPT_DIR/$dir" && matplotlib_env && MPLBACKEND=Agg python3 "$base" $extra_args); then
         ok "Ejecución de $base terminó con código 0"
+        local missing=0 out
+        if [[ -n "$outputs_csv" ]]; then
+          IFS=',' read -r -a outs <<< "$outputs_csv"
+          for out in "${outs[@]}"; do
+            if [[ -s "$SCRIPT_DIR/$dir/$out" || -s "$SCRIPT_DIR/$out" ]]; then
+              ok "Artefacto generado: $out"
+            else
+              fail "No se generó (o está vacío): $out"
+              missing=1
+            fi
+          done
+          if [[ "$missing" -eq 0 ]]; then
+            RESULT["$key"]="yes"
+          else
+            RESULT["$key"]="no"
+          fi
+        else
+          RESULT["$key"]="yes"
+        fi
       else
         fail "Ejecución de $base falló (código ≠ 0)"
+        RESULT["$key"]="no"
       fi
       explain_exercise_artifacts "$outputs_csv" "$dir"
       ;;
@@ -365,12 +385,15 @@ run_python_exercise() {
       read -r -p "  " _
       if ask_yes_no "¿La ejecución manual de $key fue correcta?"; then
         ok "$key marcado como ejecutado OK"
+        RESULT["$key"]="yes"
       else
         fail "$key: ejecución manual no confirmada"
+        RESULT["$key"]="no"
       fi
       ;;
     *)
       warn "Ejecución de $key omitida"
+      RESULT["$key"]="skip"
       ;;
   esac
 }
@@ -520,7 +543,7 @@ check_ex00() {
 
   subsection "Ejecución"
   run_python_exercise "EX00" "ex00/Histogram.py" \
-    "ex00/histogram_train.png,ex00/histogram_test.png"
+    "histogram_train.png,histogram_test.png"
 
   confirm_visual "EX00" "ex00/histogram_train.png,ex00/histogram_test.png" \
     "EX00 – ¿Aparece el histograma como en el subject?"
@@ -546,7 +569,7 @@ check_ex01() {
     "sort|sorted"
 
   subsection "Ejecución"
-  run_python_exercise "EX01" "ex01/Correlation.py" "ex01/correlation_report.md"
+  run_python_exercise "EX01" "ex01/Correlation.py" "correlation_report.md"
 
   subsection "Defensa oral (hoja)"
   ctx "Pedid: «¿Qué significa un factor de correlación?»"
@@ -576,8 +599,7 @@ check_ex02() {
     "savefig|show\("
 
   subsection "Ejecución"
-  # nombres de PNG pueden variar; el script busca lo que exista
-  run_python_exercise "EX02" "ex02/points.py" ""
+  run_python_exercise "EX02" "ex02/points.py" "points.png"
 
   subsection "Qué debe verse"
   ctx "• Un par de ejes que SEPARA visualmente Jedi/Sith en Train."
@@ -607,7 +629,8 @@ check_ex03() {
     "scatter|savefig|show\("
 
   subsection "Ejecución"
-  run_python_exercise "EX03" "ex03/standardization.py" ""
+  run_python_exercise "EX03" "ex03/standardization.py" \
+    "standardization_scatter.png"
 
   subsection "Defensa"
   ctx "Comparad ejes con EX02: ¿siguen en unidades originales o en z-scores?"
@@ -636,7 +659,8 @@ check_ex04() {
     "scatter|savefig|show\("
 
   subsection "Ejecución"
-  run_python_exercise "EX04" "ex04/Normalization.py" ""
+  run_python_exercise "EX04" "ex04/Normalization.py" \
+    "normalization_scatter.png"
 
   subsection "Defensa"
   note "Fórmula típica: x' = (x − xmin) / (xmax − xmin)  →  valores en [0, 1]"
@@ -696,15 +720,9 @@ check_ex05() {
   if [[ -z "$train" ]]; then
     warn "Sin Train_knight.csv no se puede demostrar el split automáticamente"
   else
-    # copiar train a ex05 si hace falta
-    if [[ ! -f "$SCRIPT_DIR/ex05/Train_knight.csv" ]]; then
-      note "Copiando Train a ex05/ para el comando del subject"
-      show_cmd "cp \"$train\" \"$SCRIPT_DIR/ex05/Train_knight.csv\""
-      cp "$train" "$SCRIPT_DIR/ex05/Train_knight.csv" 2>/dev/null || true
-    fi
     run_python_exercise "EX05" "ex05/split.py" \
-      "ex05/Training_knight.csv,ex05/Validation_knight.csv" \
-      "Train_knight.csv"
+      "Training_knight.csv,Validation_knight.csv" \
+      "$train"
   fi
 
   subsection "% y por qué (hoja)"
