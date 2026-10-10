@@ -1,1 +1,16 @@
 *.pdf
+
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+
+/ex00/histogram_train.png
+/ex00/histogram_test.png
+/ex02/points.png
+/ex03/standardization_scatter.png
+/ex04/normalization_scatter.png
+/ex05/Training_knight.csv
+/ex05/Validation_knight.csv
