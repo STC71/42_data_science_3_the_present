@@ -4,6 +4,8 @@
   <img src="./imgs/banner_mates.jpg" alt="Piscine Data Science – Module 3 – Matemáticas" width="100%">
 </p>
 
+[← Volver al README del módulo](./README.md)
+
 Documento **didáctico**: no sustituye al subject ni a los scripts (`Histogram.*`, `Correlation.*`, …).  
 Sirve para entender **con calma** las cuentas detrás de cada ejercicio, **sin dar por sentado** que ya sabes estadística.
 
