@@ -22,8 +22,12 @@
 7. [Prerrequisitos técnicos](#prereq)
 8. [Evaluación guiada (`evaluation.sh`)](#evaluacion)
 9. [Matemáticas del módulo (`mates.md`)](#mates)
-10. [Checklist subject](#checklist)
-11. [Navegación](#navegacion)
+10. [Python del módulo (`python.md`)](#python-hub)
+11. [pandas del módulo (`pandas.md`)](#pandas)
+12. [NumPy del módulo (`numpy.md`)](#numpy)
+13. [Matplotlib del módulo (`matplotlib.md`)](#matplotlib)
+14. [Checklist subject](#checklist)
+15. [Navegación](#navegacion)
 
 ---
 
@@ -70,6 +74,10 @@ Conviene tener copia de los CSV en `data/` y, si ejecutas un ejercicio aislado, 
 data_science_3_the_present/
 ├── README.md
 ├── mates.md              ← matemáticas del módulo (apoyo didáctico)
+├── python.md             ← hub Python del módulo
+├── pandas.md             ← guía pandas desde cero (pieza central)
+├── numpy.md              ← guía NumPy desde cero
+├── matplotlib.md         ← guía matplotlib desde cero
 ├── evaluation.sh         ← guía interactiva de defensa (NO es nota)
 ├── start.sh              ← asistente GLOBAL
 ├── data/
@@ -206,6 +214,62 @@ con fórmulas, ejemplos y analogías, sin asumir estadística previa.
 
 ---
 
+
+---
+
+<a id="python-hub"></a>
+## 🐍 Python del módulo (`python.md`)
+
+Hub didáctico de **Python** a nivel Module 3: flujo típico (CSV → cuentas → gráfico),
+librerías (`pandas`, `numpy`, `matplotlib`), rutas de `Train_knight.csv` / `Test_knight.csv`,
+puente hacia Module 4, y enlaces a cada `ex0N/python.md`.
+
+**No** hay PostgreSQL ni scikit-learn en este módulo.
+
+📖 **[python.md](./python.md)** — material de apoyo. **No** sustituye a `en.subject.pdf` ni a los entregables.
+
+[↑ Volver al índice](#indice)
+
+---
+
+<a id="pandas"></a>
+## 🐼 pandas del módulo (`pandas.md`)
+
+Guía **desde cero** de pandas orientada a este módulo: DataFrame, `read_csv`, Train vs Test
+(con/sin `knight`), separar `X`/`y`, filtrar Jedi/Sith, codificar el target a 0/1, `.corr()`,
+z-score y min-max con tablas, split 80/20 y errores típicos en 42.
+
+Es la pieza **central**: aquí no hay warehouse; todo parte de CSV.
+
+📖 **[pandas.md](./pandas.md)** — material de apoyo. **No** sustituye a `en.subject.pdf` ni a los entregables.
+
+[↑ Volver al índice](#indice)
+
+---
+
+<a id="numpy"></a>
+## 🔢 NumPy del módulo (`numpy.md`)
+
+Guía **desde cero** de NumPy: arrays frente a listas, `shape`, `axis`, estadísticas,
+paso desde pandas, z-score/min-max en bloque y frases útiles para defensa.
+
+📖 **[numpy.md](./numpy.md)** — material de apoyo. **No** sustituye a `en.subject.pdf` ni a los entregables.
+
+[↑ Volver al índice](#indice)
+
+---
+
+<a id="matplotlib"></a>
+## 📈 Matplotlib del módulo (`matplotlib.md`)
+
+Guía **desde cero** de matplotlib para Module 3: backend Agg vs ventana, histogramas (EX00),
+dispersiones (EX02–EX04), `subplots`, títulos/pies en español, PNG en cluster y cómo
+**comentar** un gráfico en evaluación.
+
+📖 **[matplotlib.md](./matplotlib.md)** — material de apoyo. **No** sustituye a `en.subject.pdf` ni a los entregables.
+
+[↑ Volver al índice](#indice)
+
 <a id="checklist"></a>
 ## ✅ Checklist subject
 
@@ -228,6 +292,10 @@ con fórmulas, ejemplos y analogías, sin asumir estadística previa.
 
 - [🧪 evaluation.sh – guía de defensa](./evaluation.sh)
 - [📐 mates.md – matemáticas del módulo](./mates.md)
+- [🐍 python.md – hub Python](./python.md)
+- [🐼 pandas.md – pandas desde cero](./pandas.md)
+- [🔢 numpy.md – NumPy desde cero](./numpy.md)
+- [📈 matplotlib.md – gráficos desde cero](./matplotlib.md)
 - [← Module 2 Data Viz](../data_science_2_data_viz/README.md)
 - [Monorepo](../README.md)
 
